@@ -10,36 +10,31 @@ function Square({ value, onSquareClick }) {
     );
 }
 
-export default function Board() {
-    /// constante "xIsNext" en booléan pour véfifier avec la condition if pour changer entre "X" et "O"
-    const [xIsNext, setXIsNext] = useState(true);
-    if (xIsNext) {
-        nextSquares[i] = "X";
-    } else {
-        nextSquares[i] = "O";
-    }
-    /// constante "square" qui représente un array de 9 "null" qui est lu grâce à "useState"; résultat après données : ["O", "X", "O", "null", "X",...]
-    const [squares, setSquares] = useState(Array(9).fill(null));
-
+function Board({ xIsNext, squares, onPlay }) {
+    /// si "squares[i]" possède déjà un élément, la fonction return, donc on overlap pas avec un "X" ou un "O" sur la même case
+    /// on vérifie ici si la partie est terminée (gagnant ou nulle) afin de ne pas pouvoir "handleClick"
     function handleClick(i) {
-        /// si "squares[i]" possède déjà un élément, la fonction return, donc on overlap pas avec un "X" ou un "O" sur la même case
-        /// on vérifie ici si la partie est terminée (gagnant ou nulle) afin de ne pas pouvoir "handleClick"
         if (squares[i] || calculateWinner(squares)) {
             return;
         }
         /// ".slice()" permet d'extraire une partie de l'array ou la string sans modifier la valeure originale, dans d'autres mots, ça crée une copie
         const nextSquares = squares.slice();
-        nextSquares[i] = "X";
-        setSquares(nextSquares);
-        setXIsNext(!xIsNext);
+        /// constante "xIsNext" en booléan pour véfifier avec la condition if pour changer entre "X" et "O"
+        if (xIsNext) {
+            nextSquares[i] = "X";
+        } else {
+            nextSquares[i] = "O";
+        }
+        onPlay(nextSquares);
     }
+
     /// on ajoute ici un calculateur de gagnant qui a gagné ou à qui est le prochain tour
     const winner = calculateWinner(squares);
     let status;
     if (winner) {
         status = "Winner: " + winner;
     } else {
-    /// "xIsNext" est en boolean et sait si X est le prochain à jouer, avec "? "X" : "O"", on retourne si oui alors = X, si non alors = O
+        /// "xIsNext" est en boolean et sait si X est le prochain à jouer, avec "? "X" : "O"", on retourne si oui alors = X, si non alors = O
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
     /// return entre parenthèse
@@ -67,8 +62,8 @@ export default function Board() {
         </>
     );
 }
-    function calculateWinner(squares) {
-/// ici on met en compte les façons de gagner au tictactoe
+function calculateWinner(squares) {
+    /// ici on met en compte les façons de gagner au tictactoe
     const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -81,10 +76,32 @@ export default function Board() {
     ];
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-    /// on vérifie ici si la valeur ("X" ou "O") de squares en position [a, b, c] est la même pour d.clarer un gagnant.
+        /// on vérifie ici si la valeur ("X" ou "O") de squares en position [a, b, c] est la même pour d.clarer un gagnant.
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             return squares[a];
         }
     }
     return null;
+}
+/// on met la fonction "Game" en priorité et on appel la fonction Board à l'intérieur en tant que component
+export default function Game() {
+    /// ajout des constantes "xIsNext" pour voir qui est le prochain et "history" pour suivre les actions des joueurs
+    const [xIsNext, setXIsNext] = useState(true);
+    const [history, setHistory] = useState([Array(9).fill(null)]);
+    const currentSquares = history[history.length - 1];
+
+    function handlePlay(nextSquares) {
+        setHistory([...history, nextSquares]);
+        setXIsNext(!xIsNext);
+    }
+    return (
+        <div className="game">
+            <div className="game-board">
+                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+            </div>
+            <div className="game-info">
+                <ol>{ }</ol>
+            </div>
+        </div>
+    );
 }
