@@ -94,13 +94,32 @@ export default function Game() {
         setHistory([...history, nextSquares]);
         setXIsNext(!xIsNext);
     }
+
+    function jumpTo(nextMove) {
+
+    }
+/// création d'une constante move qui égal l'history.map : ".map" transforme l'history des déplacement en éléments React représentant des boutons à l'écran
+    const moves = history.map((squares, move) => {
+        let description;
+        if (move > 0) {
+            description = 'Go to move #' + move;
+        } else {
+            description = 'Go to game start';
+        }
+        return (
+            <li>
+                <button onClick={() => jumpTo(move)}>{description}</button>
+            </li>
+        );
+    });
+
     return (
         <div className="game">
             <div className="game-board">
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
             </div>
             <div className="game-info">
-                <ol>{ }</ol>
+                <ol>{moves}</ol>
             </div>
         </div>
     );
