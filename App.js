@@ -84,7 +84,7 @@ function calculateWinner(squares) {
 }
 /// on met la fonction "Game" en priorité et on appel la fonction Board à l'intérieur en tant que component
 export default function Game() {
-    /// ajout des constantes "xIsNext" pour voir qui est le prochain et "history" pour suivre les actions des joueurs
+    /// ajout des constantes "xIsNext" pour voir qui est le prochain (si nombre pair, c'est X, sinon c'est O) et "history" pour suivre les actions des joueurs
     const xIsNext = currentMove % 2 === 0;
     const [history, setHistory] = useState([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState(0);
