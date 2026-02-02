@@ -22,6 +22,10 @@ export default function Board() {
     const [squares, setSquares] = useState(Array(9).fill(null));
 
     function handleClick(i) {
+    /// si "squares[i]" possède déjà un élément, la fonction return, donc on overlap pas avec un "X" ou un "O" sur la même case
+        if (squares[i]) {
+            return;
+        }
     /// ".slice()" permet d'extraire une partie de l'array ou la string sans modifier la valeure originale, dans d'autres mots, ça crée une copie
         const nextSquares = squares.slice();
         nextSquares[i] = "X";
