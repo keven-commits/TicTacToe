@@ -1,6 +1,5 @@
 /// useState : fonction qui permet de se rappeler des changements
 import { useState } from "react";
-/// value sont "null", dans cet exemple, la value sera "X" ou "O"
 /// la fonction "Square" retourne "onSquareClick" lorsqu'on clique
 function Square({ value, onSquareClick }) {
     return (
@@ -39,7 +38,7 @@ function Board({ xIsNext, squares, onPlay }) {
     }
     /// return entre parenthèse
     /// Syntaxe component JSX "<Square... />"
-    /// on connecte les fonctions "onSquareClick" et "handleClick" en y ajoutant "() =>" on définie une fonction qui va appliquer la commande suivante. dans ce cas ci : quand "onSquareClick" est cliqué on va run "handleClick()" sans cette fonction, on par dans une loop car il n'attend pas le click
+    /// on connecte les fonctions "onSquareClick" et "handleClick" en y ajoutant "() =>" on définie une fonction qui va appliquer la commande suivante. dans ce cas ci : quand "onSquareClick" est cliqué on va run "handleClick()" sans cette fonction, on part dans une loop car il n'attend pas le click
     /// on ajoute ici un component status afin de montrer à qui est le tour ou le gagnant.
     return (
         <>
@@ -76,7 +75,7 @@ function calculateWinner(squares) {
     ];
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-        /// on vérifie ici si la valeur ("X" ou "O") de squares en position [a, b, c] est la même pour d.clarer un gagnant.
+        /// on vérifie ici si la valeur ("X" ou "O") de squares en position [a, b, c] est la même pour déclarer un gagnant.
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             return squares[a];
         }
@@ -86,19 +85,21 @@ function calculateWinner(squares) {
 /// on met la fonction "Game" en priorité et on appel la fonction Board à l'intérieur en tant que component
 export default function Game() {
     /// ajout des constantes "xIsNext" pour voir qui est le prochain et "history" pour suivre les actions des joueurs
-    const [xIsNext, setXIsNext] = useState(true);
+    const xIsNext = currentMove % 2 === 0;
     const [history, setHistory] = useState([Array(9).fill(null)]);
-    const currentSquares = history[history.length - 1];
+    const [currentMove, setCurrentMove] = useState(0);
+    const currentSquares = history[currentMove];
 
     function handlePlay(nextSquares) {
-        setHistory([...history, nextSquares]);
-        setXIsNext(!xIsNext);
+        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+        setHistory(nextHistory);
+        setCurrentMove(nextHistory.length - 1);
     }
 
     function jumpTo(nextMove) {
-
+        setCurrentMove(nextMove);
     }
-/// création d'une constante move qui égal l'history.map : ".map" transforme l'history des déplacement en éléments React représentant des boutons à l'écran
+    /// création d'une constante move qui égal l'history.map : ".map" transforme l'history des déplacement en éléments React représentant des boutons à l'écran
     const moves = history.map((squares, move) => {
         let description;
         if (move > 0) {
@@ -107,7 +108,7 @@ export default function Game() {
             description = 'Go to game start';
         }
         return (
-            <li>
+            <li key={move}>
                 <button onClick={() => jumpTo(move)}>{description}</button>
             </li>
         );
@@ -124,3 +125,10 @@ export default function Game() {
         </div>
     );
 }
+
+/// function ({}) ligne 12
+/// .slice() ligne 20
+/// Key ligne 113
+/// history, setHistory... ligne 94
+/// useState ligne 88
+/// ... ligne 94

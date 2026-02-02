@@ -9,6 +9,7 @@ root.render(
   <StrictMode>
     <App />
   </StrictMode>
+  
   /// Gibberish
   /// Comment ouvrir dans le terminal ou dans une page web
 );
