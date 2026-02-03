@@ -127,8 +127,7 @@ export default function Game() {
 }
 
 /// function ({}) ligne 12
-/// .slice() ligne 20
-/// Key ligne 113
+/// Key ligne 111
 /// history, setHistory... ligne 94
 /// useState ligne 88
 /// ... ligne 94
