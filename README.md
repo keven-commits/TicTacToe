@@ -27,4 +27,6 @@ Difficultées :
 MUI :
 
     - Losrqu'on ajoute un MUI, il faut installer les packages reliés dans le cas de l'accordeon : "npm install @mui/material @mui/icons-material @emotion/react @emotion/styled"
-    - En téléchargeant les packages, plusieur component de MUI sont présente comme "container" qui permer de mettre une marge 
+    - En téléchargeant les packages, plusieur component de MUI sont présente comme "container" qui permer de mettre une marge, tout comme stack spacing... etc
+    - Sur le site MUI, lorsqu'on ajoute MUI, il nous indique ce qu'on doit importer, vérifier qu'on ne le fais pas en double
+    - Lorsqu'on importe un MUI, il sera en export defaukt function, ne pas oublier de le changer
