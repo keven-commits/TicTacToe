@@ -292,7 +292,7 @@ function NestedList() {
   );
 }
 
-export default function AccordionUsage() {
+export default function App() {
   return (
     <Container>
       <Accordion>
