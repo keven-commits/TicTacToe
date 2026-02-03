@@ -10,6 +10,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
+import LinearProgress from '@mui/material/LinearProgress';
+
 
 function Square({ value, onSquareClick }) {
   1
@@ -180,10 +182,11 @@ export default function AccordionUsage() {
           <Typography component="span">Autres MUI</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <>
+          <Stack spacing={2}>
             <BasicSwitches />
             <ImageAvatars />
-          </>
+            <LinearProgress variant="determinate" value={50} />
+          </Stack>
         </AccordionDetails>
       </Accordion>
     </Container>
