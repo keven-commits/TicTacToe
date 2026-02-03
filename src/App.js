@@ -11,7 +11,9 @@ import Switch from '@mui/material/Switch';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
-
+import * as React from 'react';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
 
 function Square({ value, onSquareClick }) {
   1
@@ -158,6 +160,26 @@ function ImageAvatars() {
   );
 }
 
+function BasicBreadcrumbs() {
+  return (
+    <div role="presentation">
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="inherit" a href="https://www.google.com/?hl=fr">
+          Google
+        </Link>
+        <Link underline="hover" color="inherit" a href="https://mui.com"
+        >
+          MUI
+        </Link>
+        <Link underline="hover" color="inherit" a href="https://mui.com/material-ui/react-breadcrumbs/"
+        >
+          Breadcrumbs
+        </Link>
+      </Breadcrumbs>
+    </div>
+  );
+}
+
 export default function AccordionUsage() {
   return (
     <Container>
@@ -186,6 +208,7 @@ export default function AccordionUsage() {
             <BasicSwitches />
             <ImageAvatars />
             <LinearProgress variant="determinate" value={50} />
+            <BasicBreadcrumbs />
           </Stack>
         </AccordionDetails>
       </Accordion>
