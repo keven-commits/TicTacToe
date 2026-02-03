@@ -1,6 +1,14 @@
 import { useState } from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
+import { Container } from '@mui/material';
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick }) {1
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -52,7 +60,7 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 }
 
-export default function Game() {
+function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
@@ -112,4 +120,35 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+export default function AccordionUsage() {
+  return (
+    <Container>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          <Typography component="span">Tic Tac Toe</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Game />
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2-content"
+          id="panel2-header"
+        >
+          <Typography component="span">Autres MUI</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          
+        </AccordionDetails>
+      </Accordion>
+    </Container>
+  );
 }

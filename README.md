@@ -23,3 +23,8 @@ Difficultées :
     - const [xIsNext, setXIsNext]
     - [...history.slice(0, currentMove + 1), nextSquares]
     - création d'un projet React initial avec node modules, index, package.json etc.
+
+MUI :
+
+    - Losrqu'on ajoute un MUI, il faut installer les packages reliés dans le cas de l'accordeon : "npm install @mui/material @mui/icons-material @emotion/react @emotion/styled"
+    - En téléchargeant les packages, plusieur component de MUI sont présente comme "container" qui permer de mettre une marge 
