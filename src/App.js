@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import { red } from '@mui/material/colors';
 
-function Square({ value, onSquareClick }) {1
+function Square({ value, onSquareClick }) {
+  1
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -122,6 +125,26 @@ function calculateWinner(squares) {
   return null;
 }
 
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
+function BasicSwitches() {
+  const [showDiv, setShowDiv] = useState(true);
+  const handleToggle = (event) => { setShowDiv(event.target.checked) }
+  return (
+    <>
+      <FormGroup>
+        <FormControlLabel
+          control={<Switch defaultChecked checked={showDiv} onChange={handleToggle} />}
+          label="Show/Hide Div"
+        />
+      </FormGroup>
+      {showDiv && (
+        <div>La div s'affiche</div>
+      )}
+    </>
+  );
+}
+
 export default function AccordionUsage() {
   return (
     <Container>
@@ -146,7 +169,9 @@ export default function AccordionUsage() {
           <Typography component="span">Autres MUI</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          
+          <>
+            <BasicSwitches />
+          </>
         </AccordionDetails>
       </Accordion>
     </Container>
