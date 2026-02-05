@@ -24,9 +24,9 @@ export default function LoadingButtonsTransition() {
                 onClick={handleClick}
                 loading={loading}
                 variant="contained"
-                disabled={loading || finished}
+                disabled={loading}
             >
-                {finished? "Terminé" : "Clickez ici"}
+                {finished? "Restart" : "Clickez ici"}
             </Button>
         </Box>
     );
