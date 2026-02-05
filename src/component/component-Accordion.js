@@ -37,15 +37,20 @@ export default function AccordionUsage() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Stack spacing={2}>
-                        <BasicBreadcrumbs />
                         <Stack spacing={2}>
                             <Stack
                                 direction="row"
                                 alignItems="center"
                                 justifyContent="space-between"
                             >
-                                <ImageAvatars />
+                                <BasicBreadcrumbs />
                                 <HoverRating />
+                            </Stack>
+                            <Stack
+                                direction="row"
+                                justifyContent="flex-end"
+                                sx={{paddingRight: "35px"}}>
+                                <ImageAvatars />
                             </Stack>
                             <BasicSwitches />
                             <LoadingButtonsTransition />

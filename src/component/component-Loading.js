@@ -23,7 +23,7 @@ export default function LoadingButtonsTransition() {
                 size="small"
                 onClick={handleClick}
                 loading={loading}
-                variant="outlined"
+                variant="contained"
                 disabled={loading || finished}
             >
                 {finished? "Terminé" : "Clickez ici"}
