@@ -4,13 +4,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Stack from '@mui/material/Stack';
-import LinearProgress from '@mui/material/LinearProgress';
 import Game from './component-Game';
 import HoverRating from './component-Rating';
 import BasicSwitches from './component-Switch';
 import ImageAvatars from './component-Avatar';
 import BasicBreadcrumbs from './component-Breadcrumbs';
 import NestedList from './component-List';
+import LoadingButtonsTransition from './component-Loading';
 
 
 export default function AccordionUsage() {
@@ -27,23 +27,30 @@ export default function AccordionUsage() {
                 <AccordionDetails>
                     <Game />
                 </AccordionDetails>
-            </Accordion>
+            </Accordion >
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2-content"
-                    id="panel2-header"
-                >
+                    id="panel2-header">
                     <Typography component="span">Autres MUI</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Stack spacing={2}>
-                        <HoverRating />
-                        <BasicSwitches />
-                        <ImageAvatars />
-                        <LinearProgress variant="determinate" value={50} />
                         <BasicBreadcrumbs />
-                        <NestedList />
+                        <Stack spacing={2}>
+                            <Stack
+                                direction="row"
+                                alignItems="center"
+                                justifyContent="space-between"
+                            >
+                                <ImageAvatars />
+                                <HoverRating />
+                            </Stack>
+                            <BasicSwitches />
+                            <LoadingButtonsTransition />
+                            <NestedList />
+                        </Stack>
                     </Stack>
                 </AccordionDetails>
             </Accordion>
