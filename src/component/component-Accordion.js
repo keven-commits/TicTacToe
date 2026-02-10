@@ -33,7 +33,7 @@ export default function AccordionUsage() {
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2-content"
                     id="panel2-header">
-                    <Typography component="span">Autres MUI</Typography>
+                    <Typography component="span">Autres Components</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Stack spacing={2}>
