@@ -15,6 +15,7 @@ Truc appris :
     - téléchargement du React DevTools browser extension
     - npm (node package manager)install pour installer les packages
     - npm start pour afficher en localhost sur le browser avec le link créé dans le terminal
+    - pour un serveur, il est important de créer un dossier server et d'y installer les package.json (npm init, npm install express), afin de ne pas avoir de conflit avec le react
     
 
 Difficultées :
