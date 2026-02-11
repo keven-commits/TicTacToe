@@ -16,6 +16,9 @@ Truc appris :
     - npm (node package manager)install pour installer les packages
     - npm start pour afficher en localhost sur le browser avec le link créé dans le terminal
     - pour un serveur, il est important de créer un dossier server et d'y installer les package.json (npm init, npm install express), afin de ne pas avoir de conflit avec le react
+    - reset le server sur VSCode lors de changement ou utiliser "nodemon exemple.js" qui va reset le port à chanque changement dans le dossier
+    - dir/* n'existe plus dans la version d'express : solution de Chatgpt : "/^\/dir\/(.*)/"
+    - NE PAS OUBLIER LE "/" A LA FIN D'UN ADRESSE QUAND ON VEUX ACCÈDER À DES DOSSIERSSSSSSSSSSSSS 
     
 
 Difficultées :
@@ -29,5 +32,3 @@ MUI :
 
     - Losrqu'on ajoute un MUI, il faut installer les packages reliés dans le cas de l'accordeon : "npm install @mui/material @mui/icons-material @emotion/react @emotion/styled"
     - En téléchargeant les packages, plusieur component de MUI sont présente comme "container" qui permer de mettre une marge, tout comme stack spacing... etc
-    - Sur le site MUI, lorsqu'on ajoute MUI, il nous indique ce qu'on doit importer, vérifier qu'on ne le fais pas en double
-    - Lorsqu'on importe un MUI, il sera en export defaukt function, ne pas oublier de le changer
