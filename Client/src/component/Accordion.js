@@ -4,13 +4,14 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Stack from '@mui/material/Stack';
-import Game from './component-Game';
-import HoverRating from './component-Rating';
-import BasicSwitches from './component-Switch';
-import ImageAvatars from './component-Avatar';
-import BasicBreadcrumbs from './component-Breadcrumbs';
-import NestedList from './component-List';
-import LoadingButtonsTransition from './component-Loading';
+import Game from './Game';
+import HoverRating from './Rating';
+import BasicSwitches from './Switch';
+import ImageAvatars from './Avatar';
+import BasicBreadcrumbs from './Breadcrumbs';
+import NestedList from './List';
+import LoadingButtonsTransition from './Loading';
+import InputFileUpload from './File-Upload';
 
 
 export default function AccordionUsage() {
@@ -49,12 +50,13 @@ export default function AccordionUsage() {
                             <Stack
                                 direction="row"
                                 justifyContent="flex-end"
-                                sx={{paddingRight: "35px"}}>
+                                sx={{ paddingRight: "35px" }}>
                                 <ImageAvatars />
                             </Stack>
                             <BasicSwitches />
                             <LoadingButtonsTransition />
                             <NestedList />
+                            <InputFileUpload />
                         </Stack>
                     </Stack>
                 </AccordionDetails>
