@@ -1,0 +1,19 @@
+function FolderItem({ item, level = 0 }) {
+    const [loaded, setLoaded] = useState({});
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get('http://localhost:3030/dir/C:/');
+                setLoaded(response.data);
+                console.log("Status Code:", response.status);
+                console.log("Data:", response.data);
+                return response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        fetchData();
+    }, []);
+}
+
+{ JSON.stringify(loaded) }

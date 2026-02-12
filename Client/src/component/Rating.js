@@ -3,7 +3,6 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 
-
 const labels = {
     0.5: 'Useless',
     1: 'Useless+',

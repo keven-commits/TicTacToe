@@ -9,7 +9,7 @@ import HoverRating from './Rating';
 import BasicSwitches from './Switch';
 import ImageAvatars from './Avatar';
 import BasicBreadcrumbs from './Breadcrumbs';
-import NestedList from './List';
+import BasicSimpleTreeView from './List';
 import LoadingButtonsTransition from './Loading';
 import InputFileUpload from './File-Upload';
 
@@ -55,8 +55,8 @@ export default function AccordionUsage() {
                             </Stack>
                             <BasicSwitches />
                             <LoadingButtonsTransition />
-                            <NestedList />
                             <InputFileUpload />
+                            <BasicSimpleTreeView />
                         </Stack>
                     </Stack>
                 </AccordionDetails>

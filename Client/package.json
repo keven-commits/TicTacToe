@@ -9,9 +9,13 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.7",
+    "@mui/lab": "^7.0.1-beta.21",
     "@mui/material": "^7.3.7",
+    "@mui/x-data-grid-generator": "^8.27.0",
+    "@mui/x-tree-view-pro": "^8.27.0",
     "axios": "^1.13.5",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",

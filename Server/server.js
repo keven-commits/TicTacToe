@@ -9,12 +9,12 @@ const port = 3030;
 
 app.use(cors());
 
-const uploadDirectory = path.join(__dirname, "UPLOAD");
+const uploadDirectory = path.join(__dirname, "UPLOADS");
 
 if (!fs.existsSync(uploadDirectory)) {
     fs.mkdirSync(uploadDirectory);
 }
-app.use("/UPLOAD", express.static(uploadDirectory))
+app.use("/UPLOADS", express.static(uploadDirectory))
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.post('/UPLOAD', upload.array("file"), (req, res) => {
+app.post('/UPLOADS', upload.array("file"), (req, res) => {
     res.json({
         message: "Fichier uploadé avec succès",
         file: req.files,
@@ -55,6 +55,10 @@ function listEntry(base) {
         console.error("Error readind directory : ", err)
     }
 }
+
+app.get("/feature/backend", (req, res) => {
+    res.send("hello")
+})
 
 app.listen(port, () => {
     console.log(`Server Listening on http://localhost:${port}`);

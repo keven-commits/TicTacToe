@@ -27,7 +27,7 @@ export default function InputFileUpload() {
     }
 
     try {
-      await axios.post('http://localhost:3030/UPLOAD', formData);
+      await axios.post('http://localhost:3030/UPLOADS', formData);
 
       alert('Upload terminé !');
       

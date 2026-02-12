@@ -19,6 +19,7 @@ Truc appris :
     - reset le server sur VSCode lors de changement ou utiliser "nodemon exemple.js" qui va reset le port à chanque changement dans le dossier
     - dir/* n'existe plus dans la version d'express : solution de Chatgpt : "/^\/dir\/(.*)/"
     - NE PAS OUBLIER LE "/" A LA FIN D'UN ADRESSE QUAND ON VEUX ACCÈDER À DES DOSSIERSSSSSSSSSSSSS 
+    - ne pas oublier de changer le nom de la fonction dans import lorsqu'on modifie un component MUI
     
 
 Difficultées :

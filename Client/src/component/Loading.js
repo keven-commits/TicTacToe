@@ -16,7 +16,6 @@ export default function LoadingButtonsTransition() {
         }, 10000);
     };
 
-
     return (
         <Box sx={{ '& > button': { m: 1 } }}>
             <Button
