@@ -38,7 +38,7 @@ app.get(/^\/dir\/(.*)/, (req, res) => {
     const p = req.params[0];
     console.log("Requested path : ", p);
 
-    const files = listEntry(p)
+    const files = listEntry("/"+p)
 
     res.send(files);
 })

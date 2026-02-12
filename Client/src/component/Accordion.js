@@ -12,11 +12,34 @@ import BasicBreadcrumbs from './Breadcrumbs';
 import BasicSimpleTreeView from './List';
 import LoadingButtonsTransition from './Loading';
 import InputFileUpload from './File-Upload';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 
 export default function AccordionUsage() {
+    const [entries, setEntries] = useState([]);
+    useEffect(()=>{
+         async function fetchData() {
+            try {
+                console.log("test")
+                const response = await axios.get('http://localhost:3030/dir/home/nicolas');
+                console.log("Status Code:", response.status);
+                console.log("Data:", response.data);
+                setEntries(response.data)
+                return response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        fetchData();
+    }, [])
+
+
     return (
         <>
+        {entries.map((v) => {
+            return <h1>{v}</h1>
+        })}
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
